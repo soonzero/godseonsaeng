@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useDaumPostcodePopup } from 'react-daum-postcode';
 import { useLocation } from 'react-router-dom';
@@ -71,6 +72,44 @@ const SignUp = () => {
 				detail: '',
 			},
 		}));
+	};
+
+	const checkBusiness = async () => {
+		if (validChecked.businessNum) {
+			setValidChecked((prev) => ({ ...prev, businessNum: false }));
+			setBusinessInfo((prev) => ({
+				...prev,
+				b_no: {
+					top: '',
+					mid: '',
+					bottom: '',
+				},
+				p_nm: '',
+				start_dt: '',
+			}));
+		} else {
+			try {
+				const { data: response } = await axios.post(
+					`//api.odcloud.kr/api/nts-businessman/v1/validate?serviceKey=${process.env.REACT_APP_PUBLIC_DATA_KEY}`,
+					{
+						businesses: [
+							{
+								b_no: `${businessInfo.b_no.top}${businessInfo.b_no.mid}${businessInfo.b_no.bottom}`,
+								start_dt: businessInfo.start_dt.replaceAll('-', ''),
+								p_nm: businessInfo.p_nm,
+							},
+						],
+					}
+				);
+				if (response.status_code === 'OK' && response.data[0].valid === '01') {
+					setValidChecked((prev) => ({ ...prev, businessNum: true }));
+				} else {
+					alert('사업자 정보가 일치하지 않습니다.');
+				}
+			} catch (e) {
+				alert(e?.message);
+			}
+		}
 	};
 
 	// 회원가입 버튼 활성화/비활성화
@@ -379,7 +418,7 @@ const SignUp = () => {
 										isValidDate(businessInfo.start_dt)
 									)
 								}
-								onClick={() => console.log('사업자 등록번호 검증')}
+								onClick={() => checkBusiness()}
 							>
 								{validChecked.businessNum
 									? '사업자 등록번호 재입력'
