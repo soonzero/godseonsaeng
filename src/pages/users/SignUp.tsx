@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useDaumPostcodePopup } from 'react-daum-postcode';
 import { useLocation } from 'react-router-dom';
 import { Button } from 'style/common/Buttons';
 import { DefaultInput } from 'style/common/Input';
@@ -6,6 +7,9 @@ import styled from 'styled-components';
 import { isValidDate, isValidEmail } from 'utils/validation';
 
 const SignUp = () => {
+	const open = useDaumPostcodePopup(
+		'//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js'
+	);
 	const { state } = useLocation();
 	const [presidentMode, setPresidentMode] = useState(state);
 
@@ -37,6 +41,37 @@ const SignUp = () => {
 		businessNum: false,
 	});
 	const [validSignUp, setValidSignUp] = useState(false);
+
+	const handleComplete = ({
+		address,
+		addressType,
+		bname,
+		buildingName,
+		zonecode,
+	}) => {
+		let fullAddress = address;
+		let extraAddress = '';
+
+		if (addressType === 'R') {
+			if (bname !== '') {
+				extraAddress += bname;
+			}
+			if (buildingName !== '') {
+				extraAddress +=
+					extraAddress !== '' ? `, ${buildingName}` : buildingName;
+			}
+			fullAddress += extraAddress !== '' ? ` (${extraAddress})` : '';
+		}
+
+		setData((prev) => ({
+			...prev,
+			institutionAddress: {
+				postcode: zonecode,
+				main: fullAddress,
+				detail: '',
+			},
+		}));
+	};
 
 	// 회원가입 버튼 활성화/비활성화
 	useEffect(() => {
@@ -206,7 +241,7 @@ const SignUp = () => {
 									<Button
 										type="button"
 										className="active"
-										onClick={() => console.log('주소 검색')}
+										onClick={() => open({ onComplete: handleComplete })}
 									>
 										{businessInfo.institutionAddress.postcode &&
 										businessInfo.institutionAddress.main
