@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import iconLogo from 'assets/svgs/icon-no-bg.svg';
 import { ReactComponent as IconMyPage } from 'assets/svgs/user.svg';
 import Nav from 'components/common/Nav';
+import Dimmed from 'components/common/Dimmed';
 import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
@@ -34,6 +35,7 @@ const Header = () => {
 			<div className="my-page-container">
 				<IconMyPage />
 			</div>
+			<Dimmed visible={navOpened} setVisible={setNavOpened} />
 			<Nav opened={navOpened} />
 		</HeaderStyled>
 	);
