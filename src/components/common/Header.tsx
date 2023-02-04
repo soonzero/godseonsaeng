@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import iconLogo from 'assets/svgs/icon-no-bg.svg';
 import { ReactComponent as IconMyPage } from 'assets/svgs/user.svg';
+import Nav from 'components/common/Nav';
 import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
@@ -15,7 +16,7 @@ const Header = () => {
 	}, [navOpened]);
 
 	return (
-		<HeaderStyled>
+		<HeaderStyled opened={navOpened}>
 			<div className="hamburger-container">
 				<div
 					className={`hamburger${navOpened ? ' opened' : ''}`}
@@ -33,29 +34,38 @@ const Header = () => {
 			<div className="my-page-container">
 				<IconMyPage />
 			</div>
+			<Nav opened={navOpened} />
 		</HeaderStyled>
 	);
 };
 
 export default Header;
 
-const HeaderStyled = styled.header`
+interface SHeader {
+	opened: boolean;
+}
+
+const HeaderStyled = styled.header<SHeader>`
 	width: 100%;
 	max-width: 37.5rem;
 	margin: 0 auto;
-	height: 5rem;
+	height: ${(props) => (props.opened ? '25.6rem' : '5rem')};
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	align-items: flex-start;
 	position: sticky;
 	border-bottom: 0.1rem solid #e5e5e5;
 	z-index: 5;
+	transition: all 0.2s ease-in-out;
 
 	.hamburger-container {
 		position: absolute;
+		top: 0;
 		left: 1.75rem;
+		height: 5rem;
 
 		.hamburger {
+			top: 1.25rem;
 			width: 2.5rem;
 			height: 2.5rem;
 			position: relative;
@@ -117,7 +127,7 @@ const HeaderStyled = styled.header`
 
 	.logo-container {
 		width: 4rem;
-		height: 4rem;
+		height: 5rem;
 		display: flex;
 		align-items: center;
 		cursor: pointer;
@@ -130,8 +140,9 @@ const HeaderStyled = styled.header`
 
 	.my-page-container {
 		position: absolute;
+		top: 1.25rem;
 		width: 2.5rem;
-		height: 2.5rem;
+		height: 5rem;
 		right: 1.75rem;
 		cursor: pointer;
 
