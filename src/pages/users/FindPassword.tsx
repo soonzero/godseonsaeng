@@ -40,12 +40,6 @@ const MainStyled = styled.main`
 	padding: 1rem 2rem;
 	flex-grow: 1;
 
-	h1 {
-		font-size: 2rem;
-		font-weight: 700;
-		margin-bottom: 3rem;
-	}
-
 	form {
 		padding: 2rem;
 		border-radius: 0.2rem;
