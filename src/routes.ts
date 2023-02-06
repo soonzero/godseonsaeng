@@ -5,7 +5,7 @@ const Users = lazy(() => import('pages/users/index'));
 
 const routes = [
 	{
-		path: '/*',
+		path: '/',
 		element: Home,
 	},
 	{
