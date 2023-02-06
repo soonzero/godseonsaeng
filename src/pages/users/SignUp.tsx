@@ -505,7 +505,7 @@ const SignUp = () => {
 
 export default SignUp;
 
-const MainStyled = styled.main`
+const MainStyled = styled.section`
 	flex-grow: 1;
 	width: 100%;
 	max-width: 37.5rem;
