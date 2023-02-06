@@ -49,9 +49,8 @@ const NavStyled = styled.nav<SNav>`
 	position: absolute;
 	top: 5rem;
 	left: 0;
-	visibility: ${(props) => (props.opened ? 'visible' : 'hidden')};
+	visibility: visible;
 	background-color: white;
-	opacity: ${(props) => (props.opened ? '1' : '0')};
 	transition: all 0.2s ease-in-out;
 	z-index: -1;
 	padding: ${(props) => (props.opened ? '1rem 0' : '')};
@@ -60,6 +59,7 @@ const NavStyled = styled.nav<SNav>`
 	font-weight: 500;
 	letter-spacing: -0.05rem;
 	overflow: hidden;
+	border-bottom: 0.1rem solid #e5e5e5;
 
 	& > ul {
 		transition: all 0.2s ease-in-out;

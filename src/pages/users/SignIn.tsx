@@ -83,7 +83,7 @@ const SignIn = () => {
 
 export default SignIn;
 
-const MainStyled = styled.main`
+const MainStyled = styled.section`
 	padding: 1rem 2rem;
 	width: 100%;
 	max-width: 37.5rem;

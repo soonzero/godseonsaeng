@@ -6,7 +6,7 @@ const MyPage = lazy(() => import('pages/mypage/MyPageMain'));
 
 const routes = [
 	{
-		path: '/*',
+		path: '/',
 		element: Home,
 	},
 	{
