@@ -6,8 +6,11 @@ import Main from 'components/common/Main';
 const Layout = styled.div`
 	display: flex;
 	flex-direction: column;
-
+	width: 100%;
+	max-width: 37.5rem;
 	min-height: 100vh;
+	margin: 0 auto;
+	overflow: hidden;
 `;
 
 const DefaultLayout = () => {
