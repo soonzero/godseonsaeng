@@ -252,6 +252,7 @@ const MyPageMain = () => {
 export default MyPageMain;
 
 const MyPageMainStyled = styled.main`
+	width: 100%;
 	max-width: 37.5rem;
 	margin: 0 auto;
 	padding: 1rem 2rem;
