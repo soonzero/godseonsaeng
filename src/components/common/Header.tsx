@@ -4,10 +4,11 @@ import iconLogo from 'assets/svgs/icon-no-bg.svg';
 import { ReactComponent as IconMyPage } from 'assets/svgs/user.svg';
 import Nav from 'components/common/Nav';
 import Dimmed from 'components/common/Dimmed';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Header = () => {
 	const navigate = useNavigate();
+	const { pathname } = useLocation();
 
 	const [navOpened, setNavOpened] = useState(false);
 
@@ -32,8 +33,10 @@ const Header = () => {
 			<div className="logo-container" onClick={() => navigate('/')}>
 				<img className="logo" src={iconLogo} alt="godseonsaeng" />
 			</div>
-			<div className="my-page-container">
-				<IconMyPage />
+			<div className="my-page-container" onClick={() => navigate('/my-page')}>
+				<IconMyPage
+					className={pathname.split('/')[1] === 'my-page' ? 'current' : ''}
+				/>
 			</div>
 			<Dimmed visible={navOpened} setVisible={setNavOpened} />
 			<Nav opened={navOpened} />
@@ -149,6 +152,7 @@ const HeaderStyled = styled.header<SHeader>`
 		cursor: pointer;
 
 		svg {
+			transition: fill 0.2s ease-in-out;
 			fill: #e5e5e5;
 
 			&.current {
