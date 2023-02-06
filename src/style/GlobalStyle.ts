@@ -85,17 +85,17 @@ const GlobalStyle = createGlobalStyle`
   input,
   textarea,
   button {
-  	margin: 0;
-  	padding: 0;
-  	border: 0;
-  	font: inherit;
-  	vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
 
-  	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  		sans-serif;
-  	-webkit-font-smoothing: antialiased;
-  	-moz-osx-font-smoothing: grayscale;
+    font-family: 'Spoqa Han Sans Neo', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    box-sizing: border-box;
   }
 
   /* HTML5 display-role reset for older browsers */
@@ -110,38 +110,49 @@ const GlobalStyle = createGlobalStyle`
   menu,
   nav,
   section {
-  	display: block;
+    display: block;
   }
 
   body {
-  	line-height: 1;
+    line-height: 1;
   }
 
   ol,
   ul {
-  	list-style: none;
+    list-style: none;
   }
 
   blockquote,
   q {
-  	quotes: none;
+    quotes: none;
   }
 
   blockquote:before,
   blockquote:after,
   q:before,
   q:after {
-  	content: '';
-  	content: none;
+    content: '';
+    content: none;
   }
 
   table {
-  	border-collapse: collapse;
-  	border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  button {
+    background-color: transparent;
+		outline: none;
   }
 
   html {
     font-size: 62.5%;
+  }
+
+  * {
+    box-sizing: border-box;
+    
+    -webkit-tap-highlight-color: transparent;
   }
 `;
 

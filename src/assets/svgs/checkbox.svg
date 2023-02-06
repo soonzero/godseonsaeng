@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" version="1.1">
+    <g id="Symbol" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Titles" transform="translate(-102258.000000, 0.000000)"/>
+        <g id="Checkbox/Checked">
+            <rect id="empty_space" x="0" y="0" width="16" height="16"/>
+            <path d="M13.5672829,3 L15.3914795,4.81872801 L6.21567609,14 L6.211,13.997 L6.20852098,14 L1,8.78928847 L2.79035893,7 L6.181,10.39 L13.5672829,3 Z" id="Checked" fill="#FFFFFF"/>
+        </g>
+    </g>
+</svg>
