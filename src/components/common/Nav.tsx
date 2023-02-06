@@ -51,7 +51,6 @@ const NavStyled = styled.nav<SNav>`
 	left: 0;
 	visibility: ${(props) => (props.opened ? 'visible' : 'hidden')};
 	background-color: white;
-	opacity: ${(props) => (props.opened ? '1' : '0')};
 	transition: all 0.2s ease-in-out;
 	z-index: -1;
 	padding: ${(props) => (props.opened ? '1rem 0' : '')};

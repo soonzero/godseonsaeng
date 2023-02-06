@@ -51,7 +51,7 @@ const HeaderStyled = styled.header<SHeader>`
 	width: 100%;
 	max-width: 37.5rem;
 	margin: 0 auto;
-	height: ${(props) => (props.opened ? '25.6rem' : '5rem')};
+	height: 5rem;
 	display: flex;
 	justify-content: center;
 	align-items: flex-start;
