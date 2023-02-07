@@ -53,31 +53,39 @@ const NavStyled = styled.nav<SNav>`
 	background-color: white;
 	transition: all 0.2s ease-in-out;
 	z-index: -1;
-	padding: ${(props) => (props.opened ? '1rem 0' : '')};
 	box-sizing: border-box;
 	font-size: 1.5rem;
 	font-weight: 500;
 	letter-spacing: -0.05rem;
 	overflow: hidden;
-	border-bottom: 0.1rem solid #e5e5e5;
 
 	& > ul {
 		transition: all 0.2s ease-in-out;
 		height: ${(props) => (props.opened ? '100%' : '0')};
-		padding-left: 2rem;
+		margin: 0 2rem;
+
+		& > li:not(:first-of-type) {
+			border-top: 0.1rem solid #e5e5e5;
+		}
+
+		& > li:first-of-type {
+			padding-bottom: 0.75rem;
+		}
 
 		& > ul {
-			padding-left: 2rem;
-			margin-bottom: 1.5rem;
+			li {
+				padding: 0.75rem 0;
+				padding-left: 2rem;
 
-			li:not(:last-of-type) {
-				margin-bottom: 0.5rem;
+				&:last-of-type {
+					padding-bottom: 1.5rem;
+				}
 			}
 		}
 	}
 
 	li {
-		padding: 0.75rem 0;
+		padding: 1.5rem 0;
 		cursor: pointer;
 		user-select: none;
 		display: flex;
@@ -88,14 +96,6 @@ const NavStyled = styled.nav<SNav>`
 			width: 1.5rem;
 			height: auto;
 			margin-right: 0.75rem;
-		}
-
-		&:not(:first-of-type) {
-			margin-bottom: 1.5rem;
-		}
-
-		&:last-of-type {
-			margin-bottom: 0;
 		}
 
 		&.current {

@@ -22,7 +22,7 @@ const Header = () => {
 	}, [pathname]);
 
 	return (
-		<HeaderStyled opened={navOpened}>
+		<HeaderStyled>
 			<div className="hamburger-container">
 				<div
 					className={`hamburger${navOpened ? ' opened' : ''}`}
@@ -48,11 +48,7 @@ const Header = () => {
 
 export default Header;
 
-interface SHeader {
-	opened: boolean;
-}
-
-const HeaderStyled = styled.header<SHeader>`
+const HeaderStyled = styled.header`
 	width: 100%;
 	max-width: 37.5rem;
 	height: 5rem;
@@ -65,6 +61,7 @@ const HeaderStyled = styled.header<SHeader>`
 	top: 0;
 	z-index: 5;
 	transition: all 0.2s ease-in-out;
+	border-bottom: 0.1rem solid #e5e5e5;
 
 	.hamburger-container {
 		position: absolute;
