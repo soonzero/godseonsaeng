@@ -90,12 +90,6 @@ const MainStyled = styled.section`
 	margin: 0 auto;
 	flex-grow: 1;
 
-	h1 {
-		font-size: 2rem;
-		font-weight: 700;
-		margin-bottom: 3rem;
-	}
-
 	form {
 		padding: 1.5rem;
 		border-radius: 0.5rem;

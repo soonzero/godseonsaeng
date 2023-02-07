@@ -514,12 +514,6 @@ const MainStyled = styled.section`
 	padding: 1rem 2rem;
 	box-sizing: border-box;
 
-	h1 {
-		font-size: 2rem;
-		font-weight: 700;
-		margin-bottom: 3rem;
-	}
-
 	form {
 		section:not(:first-of-type) {
 			margin-top: 1.5rem;

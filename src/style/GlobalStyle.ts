@@ -154,6 +154,12 @@ const GlobalStyle = createGlobalStyle`
     
     -webkit-tap-highlight-color: transparent;
   }
+
+  h1 {
+		font-size: 2rem;
+		font-weight: 700;
+		margin-bottom: 3rem;
+	}
 `;
 
 export default GlobalStyle;

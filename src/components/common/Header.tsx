@@ -37,8 +37,10 @@ const Header = () => {
 			<div className="logo-container" onClick={() => navigate('/')}>
 				<img className="logo" src={iconLogo} alt="godseonsaeng" />
 			</div>
-			<div className="my-page-container">
-				<IconMyPage />
+			<div className="my-page-container" onClick={() => navigate('/my-page')}>
+				<IconMyPage
+					className={pathname.split('/')[1] === 'my-page' ? 'current' : ''}
+				/>
 			</div>
 			<Dimmed visible={navOpened} setVisible={setNavOpened} />
 			<Nav opened={navOpened} />
@@ -152,6 +154,7 @@ const HeaderStyled = styled.header`
 		cursor: pointer;
 
 		svg {
+			transition: fill 0.2s ease-in-out;
 			fill: #e5e5e5;
 
 			&.current {
