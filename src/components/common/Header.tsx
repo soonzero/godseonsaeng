@@ -4,10 +4,11 @@ import iconLogo from 'assets/svgs/icon-no-bg.svg';
 import { ReactComponent as IconMyPage } from 'assets/svgs/user.svg';
 import Nav from 'components/common/Nav';
 import Dimmed from 'components/common/Dimmed';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Header = () => {
 	const navigate = useNavigate();
+	const { pathname } = useLocation();
 
 	const [navOpened, setNavOpened] = useState(false);
 
@@ -15,6 +16,10 @@ const Header = () => {
 		if (navOpened) document.body.style.overflow = 'hidden';
 		else document.body.style.overflow = 'unset';
 	}, [navOpened]);
+
+	useEffect(() => {
+		setNavOpened(() => false);
+	}, [pathname]);
 
 	return (
 		<HeaderStyled opened={navOpened}>
